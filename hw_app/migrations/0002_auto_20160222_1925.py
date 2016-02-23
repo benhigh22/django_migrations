@@ -5,8 +5,6 @@ from __future__ import unicode_literals
 from django.db import migrations
 
 
-from hw_app.models import Stats
-
 
 def read_data():
     with open ("/Users/BenjaminGHigh/PycharmProjects/djange_migrations/hw_app/stats_text") as infile:
@@ -20,7 +18,7 @@ def load_data(apps, schema_editor):
     Stats = apps.get_model("hw_app", "Stats")
     for row in roster:
         Stats.objects.create(name=row[0], receptions=row[1], receiving_yards=row[2], touchdowns=row[3], position=row[4])
-        
+
 
 class Migration(migrations.Migration):
 
